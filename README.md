@@ -1,25 +1,26 @@
-# go-plugin-calculator
-A simple calculator just to try out the new Go plugins.
+# go-plugin-example
+A simple app just to try out the new Go plugins.
+
+It simulates drivers for connecting to some databases, so each database should have their own plugin.
 
 ## Build the plugin(s)
 
 Right now this only works on linux.
 
-    go build -buildmode=plugin -o add.so add.go
+    go build -buildmode=plugin -o mysql.so mysql.go
 
 ## Run the program
 
+Linux:
+
     go run main.go
 
-If everything is ok, the output should be:
+Docker:
 
-    3
+    docker build -t go-plugin-example . && docker run -ti go-plugin-example
 
-## Next steps
+If everything is ok, the output should look like this:
 
-- Add a Dockerfile so this can be executed everywhere.
-- Add a Makefile with commands to build the plugins.
-- Add more plugins.
-- Move plugins to a folder.
-- Discover the plugins recursively (inside a folder by convention or by input parameters or both).
-- Possibly make the plugins comply with an interface.
+    [mysql]: Establishing connection to: http://localhost:3306/
+    [mysql]: Inserting data: Golang
+    [mysql]: Getting some data: Gepser

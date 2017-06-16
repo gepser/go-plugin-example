@@ -1,9 +1,11 @@
 FROM golang:1.8
 
-WORKDIR /go/src/app
+WORKDIR /go/src/calculator
 COPY . .
 
-RUN "go build -buildmode=plugin -o add.so add.go"
-RUN "go build"
+RUN go build -buildmode=plugin -o plugins/add.so add.go && \
+    go build -buildmode=plugin -o plugins/mult.so mult.go
 
-CMD ["go-plugin-calculator"]
+RUN go build
+
+CMD ["./calculator"]

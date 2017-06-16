@@ -1,4 +1,4 @@
-# go-plugin-example
+# <img src="./images/plugin.png" alt="plugin" width="50px" height="50px"> Go Plugin Example
 A simple app just to try out the new Go plugins.
 
 It simulates drivers for connecting to some databases, so each database should have their own plugin.
@@ -24,3 +24,4 @@ If everything is ok, the output should look like this:
     [mysql]: Establishing connection to: http://localhost:3306/
     [mysql]: Inserting data: Golang
     [mysql]: Getting some data: Gepser
+
